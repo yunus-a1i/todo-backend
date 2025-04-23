@@ -17,7 +17,7 @@ require('dotenv').config();
 
    app.get('/tasks', async (req, res) => {
      try {
-       const tasks = await Task.find().sort({ createdAt: -1 });
+       const tasks = await Task.find({}).sort({ createdAt: -1 });
        res.json(tasks);
      } catch (err) {
        res.status(500).json({ message: err.message });
